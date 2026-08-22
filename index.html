@@ -20,6 +20,8 @@
     <ul class="nav-links">
       <li><a data-page="home" href="index.html">Home</a></li>
       <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="gemstones" href="gemstones.html">Gemstones</a></li>
+      <li><a data-page="decks" href="decks.html">Deck Library</a></li>
       <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
       <li><a data-page="shop" href="shop.html">Shop</a></li>
       <li><a data-page="connect" href="connect.html">Connect</a></li>
@@ -27,18 +29,77 @@
   </nav>
 </header>
 
-<section class="hero">
+<!--
+  THE READING ROOM
+  Desktop/tablet: an interactive scene. Each glowing orb sits over an object
+  on the table and links to that section. Positions are set in % so they
+  stay aligned with the image at any screen width, don't switch room-table.jpg
+  for a different photo without re-checking these percentages.
+  Mobile: hover doesn't exist on touch, so under 640px the whole scene is
+  swapped for .room-mobile-menu (see CSS) with the same five destinations.
+-->
+<section class="room-hero">
+  <div class="room-frame">
+    <img class="room-bg" src="assets/img/room-table.jpg" alt="A candlelit reading table: an old book, crystals, tarot cards and a lit candle">
+
+    <div class="room-intro">
+      <p class="greeting">Hello, beautiful soul.</p>
+      <h1>The Heliotrope Tarot</h1>
+    </div>
+
+    <a class="hotspot" style="left:8%; top:70%;" href="about.html">
+      <span class="orb"></span>
+      <span class="label">About</span>
+    </a>
+
+    <a class="hotspot" style="left:57%; top:64%;" href="gemstones.html">
+      <span class="orb"></span>
+      <span class="label">Gemstones &amp; Their Meanings</span>
+    </a>
+
+    <a class="hotspot" style="left:45%; top:92%;" href="decks.html">
+      <span class="orb"></span>
+      <span class="label">The Deck Library</span>
+    </a>
+
+    <a class="hotspot" style="left:93%; top:58%;" href="readings.html">
+      <span class="orb"></span>
+      <span class="label">Personal Readings</span>
+    </a>
+
+    <a class="hotspot" style="left:72%; top:42%;" href="shop.html">
+      <span class="orb"></span>
+      <span class="label">Shop</span>
+    </a>
+
+    <p class="room-hint">Let your eye wander the table. Every glow leads somewhere.</p>
+  </div>
+</section>
+
+<div class="room-mobile-menu">
   <div class="wrap">
-    <img class="hero-logo" src="assets/img/logo.png" alt="The Heliotrope Tarot">
     <p class="greeting">Hello, beautiful soul.</p>
     <h1>The Heliotrope Tarot</h1>
-    <p class="lede">Like the heliotrope flower that always turns towards the sun, we are all
-      constantly seeking light, even in our darkest moments. This is your warm, uplifting
-      space for tarot and oracle readings that bring clarity, hope, and the gentle reminder
-      that you are exactly where you need to be.</p>
+    <p class="lede">Step into the reading room.</p>
+    <div class="room-mobile-links">
+      <a href="about.html">&#128214; About</a>
+      <a href="gemstones.html">&#128142; Gemstones &amp; Their Meanings</a>
+      <a href="decks.html">&#127183; The Deck Library</a>
+      <a href="readings.html">&#128367; Personal Readings</a>
+      <a href="shop.html">&#127978; Shop</a>
+    </div>
+  </div>
+</div>
+
+<section class="section section--tight">
+  <div class="wrap center">
+    <p class="lede" style="margin:0 auto;">Like the heliotrope flower that always turns towards
+      the sun, we are all constantly seeking light, even in our darkest moments. This is your
+      warm, uplifting space for tarot and oracle readings that bring clarity, hope, and the
+      gentle reminder that you are exactly where you need to be.</p>
     <div class="btn-row">
       <a class="btn btn--solid" href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">Watch on YouTube</a>
-      <a class="btn" href="readings.html">Personal Readings</a>
+      <a class="btn" href="connect.html">Connect</a>
     </div>
   </div>
 </section>
@@ -82,34 +143,6 @@
         healing. I only need to keep turning, gently and honestly, one day at a time.</p>
       <p>The light is within me. I just need to allow it to shine.</p>
       <p>I am exactly where I need to be. I trust the process. I am enough.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <h2 class="center">What You'll Find Here</h2>
-    <div class="card-grid">
-      <div class="card">
-        <span class="icon">&#128302;</span>
-        <h3>Pick-a-Card Readings</h3>
-        <p>Intuitive readings for love, career, spirituality, and life guidance.</p>
-      </div>
-      <div class="card">
-        <span class="icon">&#9800;</span>
-        <h3>Zodiac Sign Readings</h3>
-        <p>Weekly and monthly messages for all twelve signs.</p>
-      </div>
-      <div class="card">
-        <span class="icon">&#127769;</span>
-        <h3>Collective Energy</h3>
-        <p>General readings and energy forecasts for the whole community.</p>
-      </div>
-      <div class="card">
-        <span class="icon">&#9993;</span>
-        <h3>Personal Readings</h3>
-        <p>A more private message, just for you, by email.</p>
-      </div>
     </div>
   </div>
 </section>
