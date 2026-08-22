@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Readings | The Heliotrope Tarot</title>
+<meta name="description" content="Request a personal tarot reading, just for you.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="The Heliotrope Tarot logo">
+      <span class="brand-name">The Heliotrope Tarot</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="connect" href="connect.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:80px 0 60px;">
+  <div class="wrap">
+    <h1>Personal Readings</h1>
+    <p class="lede">Would you like a more personal reading, just for you?</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:700px;">
+    <div class="panel center">
+      <p>I'd love to connect with you. Reach out any time and let's talk about what kind of
+        reading would feel most meaningful for where you are right now.</p>
+      <p class="btn-row">
+        <a class="btn btn--solid mail-btn" href="mailto:theheliotropetarot@gmail.com">
+          &#9993; theheliotropetarot@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <div class="safety-note">
+      <strong>A note for your safety:</strong> I will never message you first on social
+      media or in the comments to offer a reading. My only contact is the email above.
+      Please stay cautious of anyone claiming to be me elsewhere.
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="center">Before You Write</h2>
+    <p>A little context helps me prepare a reading that truly serves you:</p>
+    <ul style="color:var(--cream);">
+      <li>What's on your heart right now, and what kind of clarity are you hoping for?</li>
+      <li>Is there a particular area of life you'd like the reading to focus on?</li>
+      <li>How would you like to receive your reading (written, or another format)?</li>
+    </ul>
+
+    <p class="disclaimer" style="margin-top:32px;">Personal readings are for entertainment
+      and spiritual guidance purposes only and do not replace professional medical, legal,
+      or financial advice. Readings reflect, they do not decide, you always hold the pen
+      that writes your story.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="community-line">&#127807; Join our growing community of Heliotropes</p>
+    <ul class="footer-links">
+      <li><a href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Ko-fi</a></li>
+      <li><a href="mailto:theheliotropetarot@gmail.com">Email</a></li>
+    </ul>
+    <p class="disclaimer">This website and all tarot and oracle readings are for
+      entertainment and spiritual guidance purposes only. They do not replace professional
+      medical, legal, or financial advice. Readings are general in nature and may not apply
+      to every visitor's specific situation.</p>
+    <p class="copyright">&copy; <span id="year"></span> The Heliotrope Tarot. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

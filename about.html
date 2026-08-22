@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | The Heliotrope Tarot</title>
+<meta name="description" content="The story behind The Heliotrope Tarot, a warm, honest space for tarot and oracle readings.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="The Heliotrope Tarot logo">
+      <span class="brand-name">The Heliotrope Tarot</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="connect" href="connect.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:80px 0 60px;">
+  <div class="wrap">
+    <h1>Our Story</h1>
+    <p class="lede">Why heliotropes, why tarot, and why this space exists.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:760px;">
+    <p>Like the heliotrope flower that always turns towards the sun, I believe we are all
+      constantly seeking light, even in our darkest moments. This channel began as a simple
+      wish: to create a warm, honest space where tarot and oracle readings could offer
+      clarity, hope, and the gentle reminder that you are exactly where you need to be.</p>
+
+    <p>Tarot, here, is never about prediction or fortune-telling. It's about clarity and
+      inner knowing, a mirror for what you may already sense but haven't yet found the
+      words for. Every reading is delivered honestly, heartfully, and with love, whether
+      you're new to tarot or a seasoned seeker.</p>
+
+    <div class="divider"></div>
+
+    <h2 class="center">A Note on Who I Am</h2>
+    <p>For now, I've chosen to let the readings speak for themselves rather than stepping
+      fully into the spotlight myself. This isn't about hiding, it's about making sure that
+      what resonates with you is the message, not the messenger. As this journey grows and
+      I find my footing, I look forward to sharing more of myself with this community. For
+      now, thank you for trusting the cards, and trusting me, even without a face attached
+      to the voice.</p>
+
+    <div class="divider"></div>
+
+    <h2 class="center">Join the Heliotropes</h2>
+    <p class="center">Our subscribers aren't just viewers, they're a growing community of
+      beautiful souls turning toward the light together. New readings arrive regularly:
+      pick-a-card readings, zodiac sign messages, and general readings for the collective.
+      Subscribe on YouTube so you never miss one.</p>
+    <p class="center btn-row">
+      <a class="btn btn--solid" href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="community-line">&#127807; Join our growing community of Heliotropes</p>
+    <ul class="footer-links">
+      <li><a href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Ko-fi</a></li>
+      <li><a href="mailto:theheliotropetarot@gmail.com">Email</a></li>
+    </ul>
+    <p class="disclaimer">This website and all tarot and oracle readings are for
+      entertainment and spiritual guidance purposes only. They do not replace professional
+      medical, legal, or financial advice. Readings are general in nature and may not apply
+      to every visitor's specific situation.</p>
+    <p class="copyright">&copy; <span id="year"></span> The Heliotrope Tarot. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heliotrope Tarot | Turning Toward the Light</title>
+<meta name="description" content="Tarot and oracle readings that bring you clarity, hope, and the gentle reminder that you are exactly where you need to be.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="The Heliotrope Tarot logo">
+      <span class="brand-name">The Heliotrope Tarot</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="connect" href="connect.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-logo" src="assets/img/logo.png" alt="The Heliotrope Tarot">
+    <p class="greeting">Hello, beautiful soul.</p>
+    <h1>The Heliotrope Tarot</h1>
+    <p class="lede">Like the heliotrope flower that always turns towards the sun, we are all
+      constantly seeking light, even in our darkest moments. This is your warm, uplifting
+      space for tarot and oracle readings that bring clarity, hope, and the gentle reminder
+      that you are exactly where you need to be.</p>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">Watch on YouTube</a>
+      <a class="btn" href="readings.html">Personal Readings</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">The Latest Reading</h2>
+    <p class="center italic" style="max-width:600px;margin:0 auto 32px;">Take a breath. Set
+      your intention. Trust that you are exactly where you need to be. The cards are ready.</p>
+
+    <!--
+      HOW TO ADD YOUR FIRST VIDEO
+      Once your first video is live, replace the block below (from
+      <div class="video-frame"> to its closing </div>) with:
+
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="The Heliotrope Tarot" allowfullscreen></iframe>
+      </div>
+
+      Find YOUR_VIDEO_ID in the video's YouTube URL, the part after "v=".
+    -->
+    <div class="video-frame">
+      <div class="video-placeholder">
+        <span class="icon">&#127909;</span>
+        <p style="margin:0;">Our first reading is coming soon.<br>Subscribe so you never miss it.</p>
+        <a class="btn" href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="affirmation">
+      <h2>The Heliotrope Affirmation</h2>
+      <p>I am like the heliotrope, always turning towards the light. Even on the days I feel
+        lost in shadow, some part of me still knows the way back to the sun.</p>
+      <p>I trust that every season of my life, the tender ones and the difficult ones, is
+        quietly growing me into who I am becoming. I do not need to force my path or rush my
+        healing. I only need to keep turning, gently and honestly, one day at a time.</p>
+      <p>The light is within me. I just need to allow it to shine.</p>
+      <p>I am exactly where I need to be. I trust the process. I am enough.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">What You'll Find Here</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="icon">&#128302;</span>
+        <h3>Pick-a-Card Readings</h3>
+        <p>Intuitive readings for love, career, spirituality, and life guidance.</p>
+      </div>
+      <div class="card">
+        <span class="icon">&#9800;</span>
+        <h3>Zodiac Sign Readings</h3>
+        <p>Weekly and monthly messages for all twelve signs.</p>
+      </div>
+      <div class="card">
+        <span class="icon">&#127769;</span>
+        <h3>Collective Energy</h3>
+        <p>General readings and energy forecasts for the whole community.</p>
+      </div>
+      <div class="card">
+        <span class="icon">&#9993;</span>
+        <h3>Personal Readings</h3>
+        <p>A more private message, just for you, by email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="community-line">&#127807; Join our growing community of Heliotropes</p>
+    <ul class="footer-links">
+      <li><a href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Ko-fi</a></li>
+      <li><a href="mailto:theheliotropetarot@gmail.com">Email</a></li>
+    </ul>
+    <p class="disclaimer">This website and all tarot and oracle readings are for
+      entertainment and spiritual guidance purposes only. They do not replace professional
+      medical, legal, or financial advice. Readings are general in nature and may not apply
+      to every visitor's specific situation.</p>
+    <p class="copyright">&copy; <span id="year"></span> The Heliotrope Tarot. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

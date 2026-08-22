@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | The Heliotrope Tarot</title>
+<meta name="description" content="Printable tarot spreads and journals from The Heliotrope Tarot.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="The Heliotrope Tarot logo">
+      <span class="brand-name">The Heliotrope Tarot</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="connect" href="connect.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:80px 0 60px;">
+  <div class="wrap">
+    <h1>Shop</h1>
+    <p class="lede">Printable spreads and journals to bring your practice home.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="card-grid" style="grid-template-columns: 1fr; max-width:640px; margin:0 auto;">
+      <div class="card">
+        <span class="icon">&#127183;</span>
+        <h3>The Spread Collection</h3>
+        <p>27 printable tarot spread and journal pages: classic and themed spreads, arcana
+          guides, and a full Reflections journal page, wrapped in a celestial night-sky
+          design. Instant digital download, print at home or use on your tablet.</p>
+        <p class="btn-row">
+          <a class="btn btn--solid" href="https://www.etsy.com/shop/TheHeliotropeTarot" target="_blank" rel="noopener">Visit the Etsy Shop</a>
+        </p>
+      </div>
+    </div>
+
+    <p class="center disclaimer" style="margin-top:40px;">More printables are on the way as
+      the collection grows. All digital products are for personal use.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="community-line">&#127807; Join our growing community of Heliotropes</p>
+    <ul class="footer-links">
+      <li><a href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Ko-fi</a></li>
+      <li><a href="mailto:theheliotropetarot@gmail.com">Email</a></li>
+    </ul>
+    <p class="disclaimer">This website and all tarot and oracle readings are for
+      entertainment and spiritual guidance purposes only. They do not replace professional
+      medical, legal, or financial advice. Readings are general in nature and may not apply
+      to every visitor's specific situation.</p>
+    <p class="copyright">&copy; <span id="year"></span> The Heliotrope Tarot. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

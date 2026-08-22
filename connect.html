@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect | The Heliotrope Tarot</title>
+<meta name="description" content="Find The Heliotrope Tarot on YouTube, Instagram, Ko-fi and more.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.png" alt="The Heliotrope Tarot logo">
+      <span class="brand-name">The Heliotrope Tarot</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a data-page="home" href="index.html">Home</a></li>
+      <li><a data-page="about" href="about.html">About</a></li>
+      <li><a data-page="readings" href="readings.html">Personal Readings</a></li>
+      <li><a data-page="shop" href="shop.html">Shop</a></li>
+      <li><a data-page="connect" href="connect.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" style="padding:80px 0 60px;">
+  <div class="wrap">
+    <h1>Connect</h1>
+    <p class="lede">Wherever you found me, welcome home.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="card-grid">
+      <div class="card">
+        <span class="icon">&#127909;</span>
+        <h3>YouTube</h3>
+        <p>Weekly readings and zodiac messages.</p>
+        <a class="btn" href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">@TheHeliotropeTarot</a>
+      </div>
+      <div class="card">
+        <span class="icon">&#128248;</span>
+        <h3>Instagram</h3>
+        <p>Behind the scenes and daily inspiration.</p>
+        <a class="btn" href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">@TheHeliotropeTarot</a>
+      </div>
+      <div class="card">
+        <span class="icon">&#9749;</span>
+        <h3>Ko-fi</h3>
+        <p>If a reading resonated with you, tips are always appreciated, never expected.</p>
+        <a class="btn" href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Support on Ko-fi</a>
+      </div>
+      <div class="card">
+        <span class="icon">&#128179;</span>
+        <h3>PayPal</h3>
+        <p>Another way to support the channel directly.</p>
+        <a class="btn" href="https://paypal.me/theheliotropetarot" target="_blank" rel="noopener">paypal.me/theheliotropetarot</a>
+      </div>
+      <div class="card">
+        <span class="icon">&#9993;</span>
+        <h3>Email</h3>
+        <p>For personal readings and enquiries.</p>
+        <a class="btn" href="mailto:theheliotropetarot@gmail.com">theheliotropetarot@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="community-line">&#127807; Join our growing community of Heliotropes</p>
+    <ul class="footer-links">
+      <li><a href="https://www.youtube.com/@TheHeliotropeTarot" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.instagram.com/TheHeliotropeTarot" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://ko-fi.com/theheliotropetarot" target="_blank" rel="noopener">Ko-fi</a></li>
+      <li><a href="mailto:theheliotropetarot@gmail.com">Email</a></li>
+    </ul>
+    <p class="disclaimer">This website and all tarot and oracle readings are for
+      entertainment and spiritual guidance purposes only. They do not replace professional
+      medical, legal, or financial advice. Readings are general in nature and may not apply
+      to every visitor's specific situation.</p>
+    <p class="copyright">&copy; <span id="year"></span> The Heliotrope Tarot. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
