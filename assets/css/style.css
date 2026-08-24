@@ -619,3 +619,30 @@ footer.site-footer {
   font-style: italic;
   font-size: 0.95rem;
 }
+
+/* deck & gem photography */
+.deck-row { align-items: center; }
+.deck-row img.deck-thumb {
+  width: 84px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.gems-hero-photo {
+  display: block;
+  max-width: 320px;
+  margin: 0 auto 28px;
+}
+
+.confirm-note {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--gold);
+  background: rgba(194,164,111,0.12);
+  border: 1px solid rgba(194,164,111,0.4);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
