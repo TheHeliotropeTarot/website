@@ -584,6 +584,16 @@ footer.site-footer {
   flex-shrink: 0;
 }
 
+.meaning-card-photo {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  height: 130px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.35));
+}
+
 .meaning-card p.keyword {
   font-family: 'IM Fell English', serif;
   font-style: italic;
