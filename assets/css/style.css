@@ -754,7 +754,7 @@ footer.site-footer {
 
 .flip-card {
   position: relative;
-  min-height: 340px;
+  min-height: 420px;
   perspective: 1400px;
   cursor: pointer;
   border-radius: 18px;
@@ -769,7 +769,7 @@ footer.site-footer {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 340px;
+  min-height: 420px;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
 }
@@ -850,7 +850,7 @@ footer.site-footer {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 30px 28px;
 }
 
@@ -903,6 +903,6 @@ footer.site-footer {
 
 @media (max-width: 640px) {
   .flip-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .flip-card, .flip-card-inner { min-height: 280px; }
+  .flip-card, .flip-card-inner { min-height: 400px; }
   .flip-card-front { padding: 22px 20px; }
 }
