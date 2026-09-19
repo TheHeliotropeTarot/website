@@ -26,17 +26,19 @@
     el.style.transitionDelay = Math.min(i, 3) * 60 + 'ms';
   });
 
-  // The large top margin matters: it extends the observed area far above the
-  // viewport, so anything the visitor has already scrolled past counts as
-  // intersecting and is revealed. Without it, jumping or flinging down the
-  // page skips sections and leaves them invisible for good.
+  // The huge top margin is deliberate. It extends the observed area far above
+  // the viewport so anything already scrolled past still counts as seen and
+  // gets revealed. Without it, a fast scroll or a jump to the foot of a long
+  // page skips sections and strands them at opacity 0 for good. It must stay
+  // larger than any page on the site, hence the absurd number rather than a
+  // tuned one.
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
       io.unobserve(entry.target);
     });
-  }, { rootMargin: '4000px 0px -12% 0px', threshold: 0 });
+  }, { rootMargin: '100000px 0px -12% 0px', threshold: 0 });
 
   targets.forEach(function (el) { io.observe(el); });
 })();

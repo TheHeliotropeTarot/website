@@ -327,6 +327,257 @@ header.site-header {
   .nav-toggle:hover { background: rgba(194, 164, 111, 0.12); border-color: var(--gold); }
 }
 
+/* ==========================================================================
+   Homepage content sections
+   ========================================================================== */
+
+/* --- section heading with fading gold rules either side --- */
+.section-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-title + .section-sub {
+  text-align: center;
+  font-style: italic;
+  color: var(--cream);
+  opacity: 0.82;
+  max-width: 56ch;
+  margin: 0 auto 40px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 190px;
+  height: 1px;
+  margin: 16px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(194,164,111,0.55), transparent);
+}
+
+/* --- find your sign --- */
+.zodiac-picker {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.zodiac-picker a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 8px 14px;
+  border: 1px solid rgba(194, 164, 111, 0.28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--cream);
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease,
+              background 0.3s ease, box-shadow 0.35s ease;
+}
+
+.zodiac-picker .glyph {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--gold);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+.zodiac-picker .sign-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+}
+
+.zodiac-picker .sign-dates {
+  font-family: 'Lora', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+
+.zodiac-picker a:hover,
+.zodiac-picker a:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(194, 164, 111, 0.75);
+  background: rgba(194, 164, 111, 0.08);
+  box-shadow: 0 16px 34px -22px rgba(194, 164, 111, 0.9);
+  text-decoration: none;
+}
+
+.zodiac-picker a:hover .glyph,
+.zodiac-picker a:focus-visible .glyph { transform: scale(1.12); }
+
+/* --- destination cards --- */
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.dest-card {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(194, 164, 111, 0.3);
+  text-decoration: none;
+  min-height: 250px;
+  background: var(--shadow);
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), border-color 0.35s ease,
+              box-shadow 0.45s ease;
+}
+
+.dest-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), opacity 0.45s ease;
+}
+
+.dest-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,4,20,0.15) 0%, rgba(10,4,20,0.82) 72%, rgba(10,4,20,0.95) 100%);
+}
+
+.dest-card .dest-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px 22px 20px;
+}
+
+.dest-card h3 {
+  color: var(--gold);
+  margin: 0 0 6px;
+  font-size: 1.22rem;
+}
+
+.dest-card p {
+  color: var(--cream);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.88;
+}
+
+.dest-card .dest-go {
+  margin-top: 12px;
+  font-family: 'Lora', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.dest-card:hover,
+.dest-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(194, 164, 111, 0.7);
+  box-shadow: 0 26px 50px -30px rgba(0,0,0,0.95);
+  text-decoration: none;
+}
+
+.dest-card:hover img,
+.dest-card:focus-visible img { transform: scale(1.06); opacity: 0.68; }
+
+/* --- what to expect --- */
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+}
+
+.expect-item {
+  text-align: center;
+  padding: 26px 20px;
+}
+
+.expect-item .expect-mark {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+
+.expect-item h3 {
+  color: var(--near-white);
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+}
+
+.expect-item p {
+  color: var(--cream);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* --- personal reading invitation --- */
+.invitation {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(194, 164, 111, 0.32);
+  border-radius: 20px;
+  padding: 54px 44px;
+  text-align: center;
+  background:
+    radial-gradient(110% 80% at 50% 0%, rgba(194, 164, 111, 0.16) 0%, rgba(194, 164, 111, 0) 60%),
+    linear-gradient(180deg, rgba(38, 16, 60, 0.42) 0%, rgba(13, 5, 24, 0.5) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 238, 0.08);
+}
+
+.invitation h2 { margin-bottom: 14px; }
+
+.invitation p {
+  max-width: 58ch;
+  margin: 0 auto 14px;
+  color: var(--cream);
+  line-height: 1.8;
+}
+
+.invitation .safety-note {
+  margin: 24px auto 0;
+  max-width: 54ch;
+  font-size: 0.82rem;
+  font-style: italic;
+  opacity: 0.68;
+}
+
+@media (max-width: 900px) {
+  .zodiac-picker { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .zodiac-picker { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .zodiac-picker a { padding: 14px 6px 12px; }
+  .zodiac-picker .glyph { font-size: 1.45rem; }
+  .zodiac-picker .sign-dates { display: none; }
+  .invitation { padding: 38px 22px; }
+}
+
+/* a sign arrived at from a #hash link gets a brief gold glow so the reader
+   can see which card answered them */
+.flip-card.is-summoned .flip-card-inner {
+  box-shadow: 0 0 0 1px rgba(194,164,111,0.8), 0 0 38px -4px rgba(194,164,111,0.75);
+  border-radius: 18px;
+}
+
+.flip-card { scroll-margin-top: 150px; }
+
 /* ---------- scroll reveal ----------
    Sections settle upward as they come into view. Applied by site.js, which
    only adds .reveal when it can observe, so with JS disabled everything

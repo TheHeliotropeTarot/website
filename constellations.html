@@ -66,7 +66,7 @@
 
     <div class="flip-grid">
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Aries, click to reveal">
+      <div class="flip-card" id="aries" tabindex="0" role="button" aria-pressed="false" aria-label="Aries, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Taurus, click to reveal">
+      <div class="flip-card" id="taurus" tabindex="0" role="button" aria-pressed="false" aria-label="Taurus, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +114,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Gemini, click to reveal">
+      <div class="flip-card" id="gemini" tabindex="0" role="button" aria-pressed="false" aria-label="Gemini, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Cancer, click to reveal">
+      <div class="flip-card" id="cancer" tabindex="0" role="button" aria-pressed="false" aria-label="Cancer, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +165,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Leo, click to reveal">
+      <div class="flip-card" id="leo" tabindex="0" role="button" aria-pressed="false" aria-label="Leo, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -191,7 +191,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Virgo, click to reveal">
+      <div class="flip-card" id="virgo" tabindex="0" role="button" aria-pressed="false" aria-label="Virgo, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -216,7 +216,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Libra, click to reveal">
+      <div class="flip-card" id="libra" tabindex="0" role="button" aria-pressed="false" aria-label="Libra, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +241,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Scorpio, click to reveal">
+      <div class="flip-card" id="scorpio" tabindex="0" role="button" aria-pressed="false" aria-label="Scorpio, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +266,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Sagittarius, click to reveal">
+      <div class="flip-card" id="sagittarius" tabindex="0" role="button" aria-pressed="false" aria-label="Sagittarius, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +293,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Capricorn, click to reveal">
+      <div class="flip-card" id="capricorn" tabindex="0" role="button" aria-pressed="false" aria-label="Capricorn, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -316,7 +316,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Aquarius, click to reveal">
+      <div class="flip-card" id="aquarius" tabindex="0" role="button" aria-pressed="false" aria-label="Aquarius, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -341,7 +341,7 @@
         </div>
       </div>
 
-      <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pisces, click to reveal">
+      <div class="flip-card" id="pisces" tabindex="0" role="button" aria-pressed="false" aria-label="Pisces, click to reveal">
         <div class="flip-card-inner">
           <div class="flip-card-face flip-card-back">
             <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
@@ -416,6 +416,38 @@
       }
     });
   });
+
+  // Arriving from a link like constellations.html#leo should open that sign
+  // straight away, rather than landing the reader on a closed card.
+  function openSignFromHash(smooth) {
+    var id = location.hash.replace('#', '');
+    if (!id) return;
+    var card = document.getElementById(id);
+    if (!card || !card.classList.contains('flip-card')) return;
+
+    // The scroll-reveal starts sections hidden, and native anchor scrolling
+    // does not reliably reach a target inside one. So force this section
+    // visible and do the scroll ourselves rather than trusting the browser.
+    var section = card.closest('section');
+    if (section) section.classList.add('reveal', 'is-visible');
+
+    card.classList.add('is-flipped');
+    card.setAttribute('aria-pressed', 'true');
+    card.classList.add('is-summoned');
+    setTimeout(function () { card.classList.remove('is-summoned'); }, 2400);
+
+    function bring() {
+      card.scrollIntoView({ block: 'center', behavior: smooth ? 'smooth' : 'auto' });
+    }
+    setTimeout(bring, 60);
+    // Images above the card finish loading after this runs and shift the
+    // layout, so settle it once more when the page is fully loaded.
+    if (document.readyState !== 'complete') {
+      window.addEventListener('load', function () { setTimeout(bring, 40); }, { once: true });
+    }
+  }
+  openSignFromHash(false);
+  window.addEventListener('hashchange', function () { openSignFromHash(true); });
 </script>
 <script src="assets/js/site.js"></script>
 </body>
