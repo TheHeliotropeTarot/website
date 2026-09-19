@@ -89,87 +89,206 @@ a:hover { text-decoration: underline; }
 
 .center { text-align: center; }
 
-/* ---------- header / nav ---------- */
+/* ---------- header / nav ----------
+   Two-tier centred lockup: brand mark on top, navigation beneath a
+   fading gold rule. On screens under 1100px this collapses to a
+   conventional brand-left / menu-button-right bar.
+*/
 header.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10, 4, 20, 0.85);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(194, 164, 111, 0.25);
+  background:
+    linear-gradient(180deg, rgba(13, 5, 24, 0.94) 0%, rgba(10, 4, 20, 0.88) 100%);
+  backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid rgba(194, 164, 111, 0.22);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.9);
 }
 
 .nav {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px;
+  gap: 11px;
+  padding: 15px 24px 13px;
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
+/* --- tier one: the brand lockup --- */
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
-.brand img { height: 44px; width: 44px; border-radius: 50%; }
+.brand img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(194, 164, 111, 0.4), 0 0 22px -6px rgba(194, 164, 111, 0.5);
+}
 
 .brand-name {
+  position: relative;
   font-family: 'IM Fell English', serif;
   color: var(--near-white);
   white-space: nowrap;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
 }
 
+/* small ornaments either side of the wordmark */
+.brand-name::before,
+.brand-name::after {
+  content: "\2726";
+  color: var(--gold);
+  font-size: 0.5em;
+  vertical-align: 0.35em;
+  opacity: 0.75;
+}
+.brand-name::before { margin-right: 0.7em; }
+.brand-name::after  { margin-left: 0.7em; }
+
+/* --- tier two: the navigation --- */
 .nav-links {
+  position: relative;
   display: flex;
-  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 30px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px 0 0;
+}
+
+/* hairline rule above the nav, fading out at both ends */
+.nav-links::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78vw;
+  max-width: 760px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(194, 164, 111, 0.45) 22%,
+    rgba(194, 164, 111, 0.45) 78%,
+    transparent 100%);
 }
 
 .nav-links a {
-  color: var(--cream);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: rgba(255, 248, 238, 0.86);
   font-family: 'Lora', serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
-.nav-links a.active,
-.nav-links a:hover { color: var(--gold); text-decoration: none; }
+/* gold underline that draws outward from the centre */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s ease, left 0.35s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a.active { color: var(--gold); text-decoration: none; }
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a.active::after { width: 100%; left: 0; }
 
 .nav-toggle { display: none; }
 
+/* Progressive enhancement: where scroll-driven animation is supported the
+   header deepens as you scroll. Colour only, never layout, so nothing
+   shifts under the reader. Unsupported browsers keep the styles above. */
+@supports (animation-timeline: scroll()) {
+  header.site-header {
+    animation: header-settle linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 180px;
+  }
+  @keyframes header-settle {
+    from {
+      background: linear-gradient(180deg, rgba(13, 5, 24, 0.55) 0%, rgba(10, 4, 20, 0.35) 100%);
+      border-bottom-color: rgba(194, 164, 111, 0.12);
+      box-shadow: 0 10px 30px -22px rgba(0, 0, 0, 0);
+    }
+    to {
+      background: linear-gradient(180deg, rgba(13, 5, 24, 0.96) 0%, rgba(10, 4, 20, 0.9) 100%);
+      border-bottom-color: rgba(194, 164, 111, 0.28);
+      box-shadow: 0 12px 34px -16px rgba(0, 0, 0, 0.95);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a,
+  .nav-links a::after { transition: none; }
+}
+
 @media (max-width: 1100px) {
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .brand img { height: 40px; width: 40px; }
+  .brand-name { font-size: 1.15rem; letter-spacing: 0.05em; }
+  .brand-name::before,
+  .brand-name::after { content: none; }
+
   .nav-links {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     flex-direction: column;
+    align-items: center;
     background: var(--dark-top);
-    padding: 20px 24px;
-    gap: 18px;
+    padding: 22px 24px 26px;
+    gap: 20px;
     display: none;
     border-bottom: 1px solid rgba(194, 164, 111, 0.25);
   }
+  .nav-links::before { content: none; }
   .nav-links.open { display: flex; }
+  .nav-links a { font-size: 0.82rem; letter-spacing: 0.16em; }
+
   .nav-toggle {
     display: block;
     background: none;
-    border: 1px solid var(--gold);
+    border: 1px solid rgba(194, 164, 111, 0.55);
     color: var(--gold);
-    font-size: 1.4rem;
-    padding: 4px 12px;
+    font-size: 1.3rem;
+    line-height: 1;
+    padding: 7px 13px;
     border-radius: 6px;
     cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
   }
+  .nav-toggle:hover { background: rgba(194, 164, 111, 0.12); border-color: var(--gold); }
 }
 
 /* ---------- hero ---------- */
