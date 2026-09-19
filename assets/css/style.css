@@ -98,11 +98,31 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background:
-    linear-gradient(180deg, rgba(13, 5, 24, 0.94) 0%, rgba(10, 4, 20, 0.88) 100%);
-  backdrop-filter: blur(14px) saturate(120%);
-  border-bottom: 1px solid rgba(194, 164, 111, 0.22);
-  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.9);
+  /* Smoked antique glass: translucent enough that the candlelight and
+     starfields read through it as content scrolls under, dense enough
+     at the base that the nav row never loses contrast. */
+  /* Split deliberately: the colour layer carries the density (it
+     interpolates smoothly on scroll, gradients do not), the gradient
+     layer only adds the vertical falloff toward the nav row. */
+  background-color: rgba(10, 4, 20, 0.64);
+  background-image:
+    linear-gradient(180deg, rgba(13, 5, 24, 0.10) 0%, rgba(10, 4, 20, 0.28) 100%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  backdrop-filter: blur(22px) saturate(135%);
+  border-bottom: 1px solid rgba(194, 164, 111, 0.26);
+  /* the inset highlight is what reads as a glass edge catching light */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.10),
+    0 14px 36px -20px rgba(0, 0, 0, 0.95);
+}
+
+/* Without backdrop blur there is nothing softening what passes beneath,
+   so fall back to a near-solid bar rather than unreadable text. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  header.site-header {
+    background-color: rgba(10, 4, 20, 0.93);
+    background-image: none;
+  }
 }
 
 .nav {
@@ -138,6 +158,7 @@ header.site-header {
   font-size: 1.5rem;
   letter-spacing: 0.08em;
   line-height: 1;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* small ornaments either side of the wordmark */
@@ -192,6 +213,7 @@ header.site-header {
   letter-spacing: 0.17em;
   text-transform: uppercase;
   white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
   transition: color 0.3s ease;
 }
 
@@ -222,20 +244,34 @@ header.site-header {
    shifts under the reader. Unsupported browsers keep the styles above. */
 @supports (animation-timeline: scroll()) {
   header.site-header {
-    animation: header-settle linear both;
+    animation-name: header-settle;
+    /* must be auto, not the shorthand's implicit 0s, or the animation
+       never advances along the scroll timeline */
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: scroll(root block);
     animation-range: 0 180px;
   }
+  /* Stays glass the whole way; it only gains a little density and lift
+     once content is actually travelling underneath it. */
   @keyframes header-settle {
     from {
-      background: linear-gradient(180deg, rgba(13, 5, 24, 0.55) 0%, rgba(10, 4, 20, 0.35) 100%);
-      border-bottom-color: rgba(194, 164, 111, 0.12);
-      box-shadow: 0 10px 30px -22px rgba(0, 0, 0, 0);
+      /* not lighter than this: with the gradient layer on top this lands
+         the nav row near 0.66 total, below which the gold hover colour
+         drops under the 4.5:1 contrast minimum over the lit hero */
+      background-color: rgba(10, 4, 20, 0.53);
+      border-bottom-color: rgba(194, 164, 111, 0.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 238, 0.07),
+        0 14px 36px -24px rgba(0, 0, 0, 0);
     }
     to {
-      background: linear-gradient(180deg, rgba(13, 5, 24, 0.96) 0%, rgba(10, 4, 20, 0.9) 100%);
-      border-bottom-color: rgba(194, 164, 111, 0.28);
-      box-shadow: 0 12px 34px -16px rgba(0, 0, 0, 0.95);
+      background-color: rgba(10, 4, 20, 0.70);
+      border-bottom-color: rgba(194, 164, 111, 0.3);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 238, 0.12),
+        0 14px 36px -18px rgba(0, 0, 0, 0.95);
     }
   }
 }
