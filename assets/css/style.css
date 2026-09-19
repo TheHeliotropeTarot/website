@@ -327,6 +327,34 @@ header.site-header {
   .nav-toggle:hover { background: rgba(194, 164, 111, 0.12); border-color: var(--gold); }
 }
 
+/* ---------- scroll reveal ----------
+   Sections settle upward as they come into view. Applied by site.js, which
+   only adds .reveal when it can observe, so with JS disabled everything
+   simply renders visible. Motion-sensitive visitors are opted out below. */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .room-hint::after,
+  .hotspot .orb,
+  .hotspot .orb::before { animation: none; }
+}
+
 /* ---------- hero ---------- */
 .hero {
   position: relative;
@@ -421,19 +449,73 @@ header.site-header {
 .card .icon { font-size: 2rem; margin-bottom: 12px; display: block; }
 
 /* ---------- affirmation ---------- */
+/* The affirmation is the emotional centre of the brand, so it is treated as
+   a lit panel rather than a plain box: a faint glow rising from beneath the
+   text, an ornament above the heading, and a closing line set apart. */
 .affirmation {
-  background: rgba(107, 45, 139, 0.18);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 115%, rgba(107, 45, 139, 0.42) 0%, rgba(107, 45, 139, 0) 62%),
+    linear-gradient(180deg, rgba(107, 45, 139, 0.2) 0%, rgba(38, 16, 60, 0.28) 100%);
   border: 1px solid rgba(194, 164, 111, 0.35);
   border-radius: 20px;
-  padding: 48px;
+  padding: 58px 48px 52px;
   text-align: center;
   font-style: italic;
   color: var(--cream);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.09),
+    0 30px 70px -50px rgba(194, 164, 111, 0.55);
 }
 
-.affirmation h2 { font-style: normal; }
-.affirmation p { margin: 0 0 18px; }
-.affirmation p:last-child { margin-bottom: 0; color: var(--gold); font-size: 1.15rem; }
+/* a faint inner keyline, the way an old plate is double-ruled */
+.affirmation::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(194, 164, 111, 0.16);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.affirmation h2 {
+  font-style: normal;
+  position: relative;
+  margin-bottom: 26px;
+}
+
+/* ornament above the heading */
+.affirmation h2::before {
+  content: '\2726';
+  display: block;
+  color: var(--gold);
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 14px;
+}
+
+.affirmation p {
+  margin: 0 auto 18px;
+  max-width: 62ch;
+  line-height: 1.85;
+}
+
+.affirmation p:last-child {
+  margin: 30px auto 0;
+  padding-top: 24px;
+  max-width: 46ch;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  border-top: 1px solid rgba(194, 164, 111, 0.28);
+}
+
+@media (max-width: 640px) {
+  .affirmation { padding: 40px 24px 36px; }
+  .affirmation::after { inset: 7px; }
+}
 
 /* ---------- video embed ---------- */
 .video-frame {
@@ -563,6 +645,24 @@ footer.site-footer {
   box-shadow: inset 0 0 120px 40px rgba(10,4,20,0.75);
 }
 
+/* LIFT: dissolve the foot of the photograph into the page background so the
+   candlelit room bleeds into the site rather than stopping at a hard edge. */
+.room-frame::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 22%;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(10, 4, 20, 0) 0%,
+    rgba(10, 4, 20, 0.45) 45%,
+    rgba(10, 4, 20, 0.85) 78%,
+    var(--dark-top) 100%);
+}
+
 .room-intro {
   position: absolute;
   top: 6%;
@@ -598,9 +698,27 @@ footer.site-footer {
   font-style: italic;
   font-size: clamp(0.75rem, 1.4vw, 0.95rem);
   text-shadow: 0 2px 8px rgba(0,0,0,0.85);
-  z-index: 5;
+  z-index: 6;
   opacity: 0.85;
   pointer-events: none;
+  text-align: center;
+}
+
+/* LIFT: a breathing descend-cue, so the room reads as the beginning of a
+   page rather than the whole of it. */
+.room-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 26px;
+  margin: 10px auto 0;
+  background: linear-gradient(180deg, rgba(194,164,111,0) 0%, rgba(194,164,111,0.85) 55%, rgba(194,164,111,0) 100%);
+  animation: descend-cue 2.8s ease-in-out infinite;
+}
+
+@keyframes descend-cue {
+  0%, 100% { opacity: 0.25; transform: translateY(-3px); }
+  50%      { opacity: 0.9;  transform: translateY(3px); }
 }
 
 /* hotspot markers: soft pulsing spirit-orb, glows and labels on hover/focus */
@@ -620,43 +738,74 @@ footer.site-footer {
 }
 
 .hotspot .orb {
+  position: relative;
   width: 34%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(242,220,170,0.95) 0%, rgba(194,164,111,0.55) 45%, rgba(194,164,111,0) 75%);
   box-shadow: 0 0 10px 3px rgba(242,220,170,0.5);
   animation: orb-pulse 3.2s ease-in-out infinite;
-  transition: all 0.35s ease;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+/* LIFT: a slow halo drifting outward from each orb, like light breathing on
+   the table. Purely decorative, sits behind the orb itself. */
+.hotspot .orb::before {
+  content: '';
+  position: absolute;
+  inset: -55%;
+  border-radius: 50%;
+  border: 1px solid rgba(242, 220, 170, 0.5);
+  opacity: 0;
+  animation: orb-halo 3.2s ease-out infinite;
+  pointer-events: none;
 }
 
 .hotspot:hover .orb,
 .hotspot:focus-visible .orb {
   width: 55%;
-  box-shadow: 0 0 22px 8px rgba(242,220,170,0.85);
+  box-shadow: 0 0 26px 10px rgba(242,220,170,0.85);
   animation-play-state: paused;
 }
+
+.hotspot:hover .orb::before,
+.hotspot:focus-visible .orb::before { animation-play-state: paused; opacity: 0; }
 
 @keyframes orb-pulse {
   0%, 100% { opacity: 0.55; box-shadow: 0 0 8px 2px rgba(242,220,170,0.35); }
   50% { opacity: 1; box-shadow: 0 0 16px 5px rgba(242,220,170,0.6); }
 }
 
+@keyframes orb-halo {
+  0%   { transform: scale(0.55); opacity: 0; }
+  35%  { opacity: 0.55; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* label styled as the same smoked glass as the site header, so the room and
+   the chrome share one material language */
 .hotspot .label {
   position: absolute;
   bottom: 115%;
   left: 50%;
-  transform: translateX(-50%) translateY(6px);
+  transform: translateX(-50%) translateY(8px);
   white-space: nowrap;
-  background: rgba(10, 4, 20, 0.92);
-  border: 1px solid var(--gold);
+  background: rgba(10, 4, 20, 0.68);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(14px) saturate(130%);
+  border: 1px solid rgba(194, 164, 111, 0.55);
   color: var(--gold);
   font-family: 'IM Fell English', serif;
   font-size: 0.95rem;
-  padding: 6px 14px;
+  letter-spacing: 0.03em;
+  padding: 7px 16px;
   border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 238, 0.12),
+    0 10px 24px -14px rgba(0, 0, 0, 0.95);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s ease;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hotspot:hover .label,
