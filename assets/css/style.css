@@ -377,11 +377,48 @@ header.site-header {
               background 0.3s ease, box-shadow 0.35s ease;
 }
 
+/* Each sign sits on a small rune stone: an uneven pebble shape in polished
+   stone, with the glyph carved into it. The carved look comes from a dark
+   drop shadow above the glyph and a faint light one below, the way an
+   engraved groove catches light from a candle. */
 .zodiac-picker .glyph {
-  font-size: 1.75rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 52px;
+  font-size: 1.6rem;
   line-height: 1;
-  color: var(--gold);
-  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  /* Zodiac codepoints default to colour-emoji presentation on many systems,
+     which ignores colour and text-shadow and renders a purple tile. The
+     U+FE0E selector in the markup asks for text presentation; naming text
+     fonts ahead of any emoji font keeps that choice. */
+  font-family: 'Lora', 'Segoe UI Symbol', 'DejaVu Sans', Georgia, serif;
+  font-variant-emoji: text;
+  color: #d8c49a;
+  background:
+    radial-gradient(60% 55% at 38% 30%, rgba(255, 248, 238, 0.22) 0%, rgba(255, 248, 238, 0) 60%),
+    linear-gradient(155deg, #55495e 0%, #3a3044 45%, #241d2d 100%);
+  border-radius: 48% 52% 46% 54% / 54% 46% 54% 46%;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 248, 238, 0.16),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.55),
+    0 6px 14px -8px rgba(0, 0, 0, 0.9);
+  text-shadow:
+    0 -1px 1px rgba(0, 0, 0, 0.85),
+    0 1px 0 rgba(255, 240, 210, 0.28);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.35s ease, color 0.35s ease;
+}
+
+/* the faint sheen across a polished stone */
+.zodiac-picker .glyph::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, rgba(255,248,238,0.14) 0%, rgba(255,248,238,0) 42%);
+  pointer-events: none;
 }
 
 .zodiac-picker .sign-name {
@@ -406,8 +443,16 @@ header.site-header {
   text-decoration: none;
 }
 
+/* on hover the stone lifts and the carving catches the light */
 .zodiac-picker a:hover .glyph,
-.zodiac-picker a:focus-visible .glyph { transform: scale(1.12); }
+.zodiac-picker a:focus-visible .glyph {
+  transform: scale(1.09) rotate(-2deg);
+  color: var(--gold);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 248, 238, 0.22),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.5),
+    0 10px 22px -10px rgba(194, 164, 111, 0.75);
+}
 
 /* --- destination cards --- */
 .dest-grid {
@@ -564,7 +609,7 @@ header.site-header {
 @media (max-width: 560px) {
   .zodiac-picker { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .zodiac-picker a { padding: 14px 6px 12px; }
-  .zodiac-picker .glyph { font-size: 1.45rem; }
+  .zodiac-picker .glyph { width: 48px; height: 45px; font-size: 1.35rem; }
   .zodiac-picker .sign-dates { display: none; }
   .invitation { padding: 38px 22px; }
 }
@@ -1311,7 +1356,7 @@ footer.site-footer {
 
 .flip-card {
   position: relative;
-  min-height: 420px;
+  min-height: 530px;
   perspective: 1400px;
   cursor: pointer;
   border-radius: 18px;
@@ -1326,7 +1371,7 @@ footer.site-footer {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 530px;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
 }
@@ -1416,6 +1461,9 @@ footer.site-footer {
   align-items: center;
   gap: 10px;
   margin-bottom: 8px;
+  /* keep the zodiac glyph as gold text rather than a colour emoji tile,
+     see the note on .zodiac-picker .glyph */
+  font-variant-emoji: text;
 }
 
 .flip-card-front .keyword {
@@ -1458,8 +1506,44 @@ footer.site-footer {
   font-size: 0.88rem;
 }
 
+/* watch-this-sign link at the foot of a flipped card. Stops the click from
+   reaching the card, otherwise following the link also flips it shut. */
+.flip-card-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 15px;
+  border: 1px solid rgba(194, 164, 111, 0.5);
+  border-radius: 999px;
+  background: rgba(194, 164, 111, 0.08);
+  color: var(--gold);
+  font-family: 'Lora', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.flip-card-watch:hover,
+.flip-card-watch:focus-visible {
+  background: rgba(194, 164, 111, 0.2);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.flip-card-watch .play-mark {
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
 @media (max-width: 640px) {
-  .flip-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .flip-card, .flip-card-inner { min-height: 400px; }
-  .flip-card-front { padding: 22px 20px; }
+  /* One column on phones. Two columns leaves each card about 160px wide,
+     which wraps the reading text so hard the card needs ~920px of height
+     and the watch link falls off the bottom. */
+  .flip-grid { grid-template-columns: 1fr; gap: 20px; }
+  .flip-card, .flip-card-inner { min-height: 500px; }
+  .flip-card-front { padding: 26px 24px; }
 }
