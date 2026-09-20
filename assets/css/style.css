@@ -328,6 +328,182 @@ header.site-header {
 }
 
 /* ==========================================================================
+   Deck Library
+   ========================================================================== */
+
+.deck-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 34px;
+}
+
+.deck-filter {
+  appearance: none;
+  cursor: pointer;
+  font-family: 'Lora', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 238, 0.82);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(194, 164, 111, 0.3);
+  border-radius: 999px;
+  padding: 9px 18px;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.deck-filter .count {
+  opacity: 0.55;
+  margin-left: 7px;
+  font-size: 0.92em;
+}
+
+.deck-filter:hover { border-color: rgba(194, 164, 111, 0.65); color: var(--gold); }
+
+.deck-filter[aria-pressed="true"] {
+  color: var(--dark-top);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.deck-filter[aria-pressed="true"] .count { opacity: 0.7; }
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 24px;
+}
+
+.deck-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.032);
+  border: 1px solid rgba(194, 164, 111, 0.26);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              border-color 0.35s ease, box-shadow 0.4s ease;
+}
+
+.deck-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(194, 164, 111, 0.6);
+  box-shadow: 0 24px 46px -30px rgba(0, 0, 0, 0.95);
+}
+
+.deck-card[hidden] { display: none; }
+
+.deck-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(160deg, #241d2d 0%, #16101f 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(194, 164, 111, 0.2);
+}
+
+.deck-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Decks without a photograph get a card back rather than a stray emoji, so
+   the shelf reads as one set instead of a mixed bag. */
+.deck-back {
+  position: relative;
+  width: 74px;
+  height: 104px;
+  border-radius: 8px;
+  border: 1px solid rgba(194, 164, 111, 0.5);
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(194,164,111,0.06) 0px, rgba(194,164,111,0.06) 2px,
+      transparent 2px, transparent 7px),
+    linear-gradient(165deg, #3a3044 0%, #1d1729 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 3px rgba(10, 4, 20, 0.55), 0 10px 22px -14px #000;
+}
+
+.deck-back::before {
+  content: '\2726';
+  color: var(--gold);
+  font-size: 1.15rem;
+  opacity: 0.75;
+}
+
+.deck-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 20px;
+}
+
+.deck-type {
+  align-self: flex-start;
+  font-family: 'Lora', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(194, 164, 111, 0.4);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+.deck-card h3 {
+  font-size: 1.12rem;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.deck-by {
+  font-family: 'Lora', serif;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: var(--cream);
+  opacity: 0.6;
+  margin: 0 0 10px;
+}
+
+.deck-card > .deck-card-body > p:not(.deck-by):not(.deck-seen) {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.deck-seen {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(194, 164, 111, 0.18);
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.deck-seen a { text-decoration: underline; text-underline-offset: 3px; }
+
+.deck-empty {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+  padding: 30px 0;
+}
+
+@media (max-width: 640px) {
+  /* keep the filter pills at a comfortable touch size */
+  .deck-filter { padding: 13px 18px; font-size: 0.7rem; }
+  .deck-toolbar { gap: 8px; }
+  .deck-card-media { aspect-ratio: 16 / 9; }
+}
+
+/* ==========================================================================
    Homepage content sections
    ========================================================================== */
 

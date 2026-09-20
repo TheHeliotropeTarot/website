@@ -26,11 +26,15 @@
 <body>
 
 <!--
-  DRAFT CONTENT NOTICE FOR MEL:
-  Every description below is a warm first-pass draft written from the deck
-  name alone, not your own voice or experience with each deck. Please
-  personalize these (how a deck feels to you, when you reach for it) before
-  treating this page as final. Search "DRAFT:" to find each one quickly.
+  NOTE FOR MEL:
+  Deck descriptions are still written from the deck name and its general
+  reputation, not from your own experience of reading with it. They read
+  fine, but they are not yet your voice. Worth replacing over time with
+  how each deck actually feels to you and when you reach for it.
+
+  Attribution shown under a deck name (creator or publisher) is included
+  only where it is well established. Several decks here have none listed
+  because I could not confirm it, rather than because none exists.
 -->
 
 <header class="site-header">
@@ -62,101 +66,276 @@
 </section>
 
 <section class="section">
-  <div class="wrap" style="max-width:820px;">
+  <div class="wrap">
 
-    <h2>Tarot Decks</h2>
-    <div class="deck-list">
-      <div class="deck-row">
-        <span class="deck-icon">&#127183;</span>
-        <div>
+    <div class="parchment">
+      <p class="center italic" style="max-width:660px;margin:0 auto 8px;">Every deck here lives
+        on the reading table. Some are reached for often, some wait for the right question.
+        Filter by kind, or see which ones have already found their way into a reading.</p>
+    </div>
+
+    <div class="deck-toolbar" role="group" aria-label="Filter decks">
+      <!-- counts are filled in by script from the cards themselves, so they
+           cannot drift out of step when a deck is added or removed -->
+      <button class="deck-filter" type="button" data-filter="all" aria-pressed="true">All<span class="count"></span></button>
+      <button class="deck-filter" type="button" data-filter="tarot" aria-pressed="false">Tarot<span class="count"></span></button>
+      <button class="deck-filter" type="button" data-filter="oracle" aria-pressed="false">Oracle<span class="count"></span></button>
+      <button class="deck-filter" type="button" data-filter="seen" aria-pressed="false">Seen in readings<span class="count"></span></button>
+    </div>
+
+    <div class="deck-grid" id="deckGrid">
+
+      <!-- ---------- tarot ---------- -->
+
+      <article class="deck-card" data-type="tarot" data-seen="true">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Tarot</span>
+          <h3>Gold Foil Tarot Card Deck</h3>
+          <p class="deck-by">Divination edition</p>
+          <p>Gilded, ornate and unmistakable on camera. The tarot deck behind every Ocean of
+            Wisdom reading, carrying traditional symbolism in a far more theatrical dress.</p>
+          <p class="deck-seen">Seen in <a href="constellations.html">all twelve Ocean of Wisdom readings</a></p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="tarot" data-seen="true">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Tarot</span>
           <h3>Tarot of the Witch's Garden</h3>
-          <!-- DRAFT: -->
-          <p>An earthy, botanical deck, gentle reading for questions rooted in growth,
-            nature, and the seasons of the self.</p>
+          <p class="deck-by">Lo Scarabeo</p>
+          <p>An earthy, botanical deck, gentle reading for questions rooted in growth, nature,
+            and the seasons of the self.</p>
+          <p class="deck-seen">Seen in the 2026 Zodiac Readings</p>
         </div>
-      </div>
-      <div class="deck-row">
-        <img class="deck-thumb" src="assets/img/decks/deck-smith-waite.png" alt="Smith-Waite Tarot Deck">
-        <div>
+      </article>
+
+      <article class="deck-card" data-type="tarot" data-seen="true">
+        <div class="deck-card-media">
+          <img src="assets/img/decks/deck-smith-waite.png" alt="Smith-Waite Tarot Deck" loading="lazy" decoding="async">
+        </div>
+        <div class="deck-card-body">
+          <span class="deck-type">Tarot</span>
           <h3>Smith-Waite Tarot Deck</h3>
-          <!-- DRAFT: -->
-          <p>The classic, borderless edition. A timeless deck for clear, traditional
-            symbolism, often the first reach for a grounded, honest reading.</p>
+          <p class="deck-by">Borderless edition, Pamela Colman Smith &amp; A. E. Waite</p>
+          <p>The classic. A timeless deck for clear, traditional symbolism, often the first
+            reach for a grounded, honest reading.</p>
+          <p class="deck-seen">Seen in the 2026 Zodiac Readings</p>
         </div>
-      </div>
+      </article>
+
+      <!-- ---------- oracle ---------- -->
+
+      <article class="deck-card" data-type="oracle" data-seen="true">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Ocean of Wisdom Oracle Cards</h3>
+          <p class="deck-by">Zena Bulte</p>
+          <p>Deep, flowing guidance for when clarity feels far below the surface. Tides, coral
+            and quiet creatures, and the series that took its name from this deck.</p>
+          <p class="deck-seen">Seen in <a href="constellations.html">all twelve Ocean of Wisdom readings</a></p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="true">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Mindful Messages</h3>
+          <p>Present-moment prompts for grounding and stillness. Short, plainly worded, and
+            easy to carry out of a reading and into the rest of the day.</p>
+          <p class="deck-seen">Seen in <a href="constellations.html">all twelve Ocean of Wisdom readings</a></p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="true">
+        <div class="deck-card-media">
+          <img src="assets/img/decks/deck-angel-whisper.png" alt="Angel Whisper Cards" loading="lazy" decoding="async">
+        </div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Angel Whisper Cards</h3>
+          <p>Soft, quiet guidance, like a whisper you almost missed. Numbered messages that
+            often arrive as the gentlest card on the table.</p>
+          <p class="deck-seen">Seen in the 2026 Zodiac Readings</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="true">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Magical Messages from the Fairies</h3>
+          <p class="deck-by">Doreen Virtue</p>
+          <p>Playful, whimsical guidance, a lighter touch for lighter days.</p>
+          <p class="deck-seen">Seen in the 2026 Zodiac Readings</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media">
+          <img src="assets/img/decks/deck-earth-wisdom.png" alt="Earth Wisdom Oracle" loading="lazy" decoding="async">
+        </div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Earth Wisdom Oracle</h3>
+          <p>Grounded, seasonal wisdom drawn from the natural world.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media">
+          <img src="assets/img/decks/deck-mystic-forest.png" alt="Mystic Forest Oracle Cards" loading="lazy" decoding="async">
+        </div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Mystic Forest Oracle Cards</h3>
+          <p>Woodland imagery for readings that call for quiet and deep roots.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media">
+          <img src="assets/img/decks/deck-daily-guidance.png" alt="Daily Guidance from Your Angels" loading="lazy" decoding="async">
+        </div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Daily Guidance from Your Angels</h3>
+          <p class="deck-by">Doreen Virtue</p>
+          <p>A steady, everyday companion deck.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>The Spirit Animal Oracle</h3>
+          <p class="deck-by">Colette Baron-Reid</p>
+          <p>Messages carried by animal wisdom and instinct.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Shadow Work Oracle</h3>
+          <p>Honest, unflinching guidance for the parts of ourselves we tend to avoid.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Angels and Ancestors</h3>
+          <p class="deck-by">Kyle Gray</p>
+          <p>Messages that reach back through lineage and spirit.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Guardian Angel Messages</h3>
+          <p>Warm, reassuring messages for when you need to feel less alone.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>The Secret Language of Light</h3>
+          <p>Luminous, gentle guidance for moments seeking a softer kind of clarity.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Healing Energy Oracle</h3>
+          <p>Reached for in readings about rest, recovery, and gentle repair.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Heal Yourself Reading Cards</h3>
+          <p>Direct, practical prompts for self-guided healing.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Past Life Oracle Cards</h3>
+          <p class="deck-by">Doreen Virtue &amp; Brian Weiss</p>
+          <p>For questions that feel older than this lifetime.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Telepathy Oracle Cards</h3>
+          <p>For questions about connection, communication, and what goes unsaid.</p>
+        </div>
+      </article>
+
+      <article class="deck-card" data-type="oracle" data-seen="false">
+        <div class="deck-card-media"><span class="deck-back" aria-hidden="true"></span></div>
+        <div class="deck-card-body">
+          <span class="deck-type">Oracle</span>
+          <h3>Chakra Hands Oracle</h3>
+          <p>An unlabelled deck of hands and energy centres, kept for readings about the body
+            and where feeling settles in it.</p>
+        </div>
+      </article>
+
     </div>
 
-    <div class="divider"></div>
-
-    <h2>Oracle Decks</h2>
-    <div class="deck-list">
-      <div class="deck-row">
-        <span class="deck-icon">&#10024;</span>
-        <div><h3>The Secret Language of Light</h3><!-- DRAFT: --><p>Luminous, gentle guidance for moments seeking a softer kind of clarity.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128124;</span>
-        <div><h3>Guardian Angel Messages</h3><!-- DRAFT: --><p>Warm, reassuring messages for when you need to feel less alone.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#127749;</span>
-        <div><h3>Magical Messages from the Fairies</h3><!-- DRAFT: --><p>Playful, whimsical guidance, a lighter touch for lighter days.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128007;</span>
-        <div><h3>The Spirit Animal Oracle</h3><!-- DRAFT: --><p>By Colette Baron-Reid. Messages carried by animal wisdom and instinct.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128154;</span>
-        <div><h3>Healing Energy Oracle</h3><!-- DRAFT: --><p>Reached for in readings about rest, recovery, and gentle repair.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#127761;</span>
-        <div><h3>Shadow Work Oracle</h3><!-- DRAFT: --><p>Honest, unflinching guidance for the parts of ourselves we tend to avoid.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128153;</span>
-        <div><h3>Heal Yourself Reading Cards</h3><!-- DRAFT: --><p>Direct, practical prompts for self-guided healing.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128124;</span>
-        <div><h3>Angels and Ancestors</h3><!-- DRAFT: --><p>By Kyle Gray. Messages that reach back through lineage and spirit.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#8734;</span>
-        <div><h3>Past Life Oracle Cards</h3><!-- DRAFT: --><p>By Doreen Virtue &amp; Brian Weiss. For questions that feel older than this lifetime.</p></div>
-      </div>
-      <div class="deck-row">
-        <img class="deck-thumb" src="assets/img/decks/deck-angel-whisper.png" alt="Angel Whisper Cards">
-        <div><h3>Angel Whisper Cards</h3><!-- DRAFT: --><p>Soft, quiet guidance, like a whisper you almost missed.</p></div>
-      </div>
-      <div class="deck-row">
-        <img class="deck-thumb" src="assets/img/decks/deck-earth-wisdom.png" alt="Earth Wisdom Oracle">
-        <div><h3>Earth Wisdom Oracle</h3><!-- DRAFT: --><p>Grounded, seasonal wisdom drawn from the natural world.</p></div>
-      </div>
-      <div class="deck-row">
-        <img class="deck-thumb" src="assets/img/decks/deck-mystic-forest.png" alt="Mystic Forest Oracle Cards">
-        <div><h3>Mystic Forest Oracle Cards</h3><!-- DRAFT: --><p>Woodland imagery for readings that call for quiet and deep roots.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#128172;</span>
-        <div><h3>Telepathy Oracle Cards</h3><!-- DRAFT: --><p>For questions about connection, communication, and what goes unsaid.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#127754;</span>
-        <div><h3>Ocean of Wisdom Oracle Cards</h3><!-- DRAFT: --><p>Deep, flowing guidance, for when clarity feels far below the surface.</p></div>
-      </div>
-      <div class="deck-row">
-        <img class="deck-thumb" src="assets/img/decks/deck-daily-guidance.png" alt="Daily Guidance from Your Angels">
-        <div><h3>Daily Guidance from Your Angels</h3><!-- DRAFT: --><p>By Doreen Virtue. A steady, everyday companion deck.</p></div>
-      </div>
-      <div class="deck-row">
-        <span class="deck-icon">&#129504;</span>
-        <div><h3>Mindful Messages</h3><!-- DRAFT: --><p>Present-moment prompts for grounding and stillness.</p></div>
-      </div>
-    </div>
+    <p class="deck-empty" id="deckEmpty" hidden>No decks in that group yet.</p>
 
     <a class="back-to-room" href="index.html">&larr; Back to the Reading Room</a>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <h2 class="section-title">Choosing a Deck</h2>
+    <p class="section-sub">Decks are not picked at random. Each week's theme suggests its own
+      company, and most readings use two or three together.</p>
+
+    <div class="expect-grid">
+      <div class="expect-item">
+        <span class="expect-mark">&#10022;</span>
+        <h3>A tarot deck to anchor</h3>
+        <p>One tarot deck carries the structure of the reading, the arc from beginning to
+          resolution. Everything else is drawn around it.</p>
+      </div>
+      <div class="expect-item">
+        <span class="expect-mark">&#10022;</span>
+        <h3>An oracle to soften</h3>
+        <p>Oracle cards add warmth and plain language where tarot can feel formal. They often
+          carry the line you actually remember afterwards.</p>
+      </div>
+      <div class="expect-item">
+        <span class="expect-mark">&#10022;</span>
+        <h3>Matched to the week</h3>
+        <p>Shadow work weeks lean on the Shadow Work Oracle and the Witch's Garden. Angel
+          weeks call in the Whisper Cards. Ocean weeks belong to the tides.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -178,6 +357,48 @@
 </footer>
 
 <script>
+
+  // Deck filters. Cards carry data-type and data-seen; filtering just toggles
+  // the hidden attribute so no layout or markup is rebuilt.
+  (function () {
+    var grid = document.getElementById('deckGrid');
+    if (!grid) return;
+    var cards = [].slice.call(grid.querySelectorAll('.deck-card'));
+    var buttons = [].slice.call(document.querySelectorAll('.deck-filter'));
+    var empty = document.getElementById('deckEmpty');
+
+    function matches(card, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'seen') return card.getAttribute('data-seen') === 'true';
+      return card.getAttribute('data-type') === filter;
+    }
+
+    // fill each button's count from the cards present
+    buttons.forEach(function (b) {
+      var f = b.getAttribute('data-filter');
+      var n = cards.filter(function (c) { return matches(c, f); }).length;
+      var slot = b.querySelector('.count');
+      if (slot) slot.textContent = n;
+    });
+
+    function apply(filter) {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var match = matches(card, filter);
+        card.hidden = !match;
+        if (match) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-filter') === filter));
+      });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); });
+    });
+  })();
+
   document.getElementById('year').textContent = new Date().getFullYear();
   document.querySelector('.nav-toggle').addEventListener('click', function () {
     document.querySelector('.nav-links').classList.toggle('open');
