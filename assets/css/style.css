@@ -920,6 +920,28 @@ header.site-header {
 
 .card .icon { font-size: 2rem; margin-bottom: 12px; display: block; }
 
+/* Cards in a grid share a row height, so the text column stretches and the
+   button sits on the same line across every card. Long handles and addresses
+   wrap inside the button instead of pushing past the card edge. */
+.card-grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-grid .card p { flex: 1 1 auto; }
+
+.card-grid .card .btn {
+  align-self: center;
+  max-width: 100%;
+  margin: 18px 0 0;
+  padding: 12px 16px;
+  font-size: 0.86rem;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.35;
+}
+
 /* ---------- affirmation ---------- */
 /* The affirmation is the emotional centre of the brand, so it is treated as
    a lit panel rather than a plain box: a faint glow rising from beneath the
